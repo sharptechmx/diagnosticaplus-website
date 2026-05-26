@@ -634,15 +634,15 @@
     <div class="faq-grid">
 
       <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <button class="faq-q" type="button">
           ¿Cómo agendo una cita?
-          <span>+</span>
+          <span class="faq-icon">+</span>
         </button>
         <div class="faq-a">Lo más fácil es por WhatsApp al (665) 392 3251. También puede llamar al (665) 654 1770. Le pedimos algunos datos básicos y le damos cita para el mismo día o el siguiente, según disponibilidad.</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <button class="faq-q" type="button">
           ¿Necesito preparación para el estudio?
           <span>+</span>
         </button>
@@ -650,7 +650,7 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <button class="faq-q" type="button">
           ¿Cuánto tarda el estudio?
           <span>+</span>
         </button>
@@ -658,7 +658,7 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        <button class="faq-q" type="button">
           ¿Aceptan tarjeta o solo efectivo?
           <span>+</span>
         </button>
@@ -708,13 +708,12 @@
 </footer>
 
 <script>
-// FAQ toggle
 document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
+  btn.addEventListener('click', function() {
+    const item = this.closest('.faq-item');
     item.classList.toggle('open');
-    const icon = btn.querySelector('span');
-    icon.textContent = item.classList.contains('open') ? '−' : '+';
+    const icon = item.querySelector('.faq-icon');
+    if (icon) icon.textContent = item.classList.contains('open') ? '−' : '+';
   });
 });
 </script>
